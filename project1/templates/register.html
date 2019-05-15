@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block heading %}
+    New to Book Review?  Register Here!
+{% endblock %}
+{% block body %}
+    <form action="{{ url_for('newuser') }}"> method="post">
+        <input type="text" name="username" placeholder="username" value="{{request.form['username']}}">
+        <input type="email" name="email" placeholder="email" value="{{request.form['email']}}">
+        <input type="password" name="password" placeholder="password" value="{{request.form['password']}}">
+        <button>Submit</button>
+    </form>
+    <p>Welcome to Book Review, {{request.form['username']}}</p>
+{% endblock %}
