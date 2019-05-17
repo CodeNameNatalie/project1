@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+      Got Books?
+{% endblock %}
+
+{% block body %}
+      <p>
+          <strong>THE BOOKS DIRECTORY:</strong> Click on a book from the results of the search page.  You should be taken to a book page,
+           with details about the book: its title, author, publication year, ISBN number, and any reviews that users have
+           left.
+      </p>
+      <p><strong>SUBMIT A REVIEW:</strong> On the book page, users should be able to submit a review consisting of a rating on a scale of 1 to 5, as well
+        as a text component to the review where the user can write their opinion about a book. Users should not be able to submit multiple
+        reviews for the same book.
+      </p>
+      <p><strong>REVIEWS:</strong> On your book page, you should also display (if available) the average rating and number of ratings the work
+        has received from Goodreads.
+      </p>
+
+          <ul>
+                {% for book in books %}
+                <li>{{ book }}</li>
+                {% endfor %}
+          </ul>
+
+          <form action="{{ url_for('books') }}" method="post">
+            <input type="text" name="book" placeholder="Enter a Book here">
+            <button>Add Book</button>
+
+
+          </form>
+
+
+{% endblock %}
